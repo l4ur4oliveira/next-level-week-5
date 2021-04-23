@@ -12,6 +12,9 @@ Iniciando server:
 
 - Instalar dependências com `yarn install`
 - Start server `yarn dev`
+- Create migrations `yarn typeorm migrations:create -n table_name`
+- Run migrations `yarn typeorm migrations:run`
+- Revert migrations `yarn typeorm migrations:revert`
 
 Acesso em [`localhost:3333`](http://localhost:3333).
 
@@ -20,6 +23,9 @@ Acesso em [`localhost:3333`](http://localhost:3333).
 - Visual Studio Code
 - Google Chrome
 - Postman
+- Express
+- TypeORM
+- SQLite
 
 <!-- ## Endpoints
 
