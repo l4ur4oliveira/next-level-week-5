@@ -12,11 +12,13 @@ Iniciando server:
 
 - Instalar dependências com `yarn install`
 - Start server `yarn dev`
-- Create migrations `yarn typeorm migrations:create -n table_name`
-- Run migrations `yarn typeorm migrations:run`
-- Revert migrations `yarn typeorm migrations:revert`
+- Create migrations `yarn typeorm migration:create -n table_name`
+- Run migrations `yarn typeorm migration:run`
+- Revert migrations `yarn typeorm migration:revert`
 
-Acesso em [`localhost:3333`](http://localhost:3333).
+Acesso Cliente: [http://localhost:3333/pages/client](http://localhost:3333/pages/client).
+<br>
+Acesso Admin: [http://localhost:3333/pages/admin](http://localhost:3333/pages/admin).
 
 ## Tools
 
@@ -26,20 +28,50 @@ Acesso em [`localhost:3333`](http://localhost:3333).
 - Express
 - TypeORM
 - SQLite
+- Socket.io
 
-<!-- ## Endpoints
+## Endpoints
 
 <br>
 
 ### POST
-- /api/**users** (cria um usuário com uma conta zerada)
+- /settings/
 ```
 BODY:
 {
-    "name": "nome_do_usuario",
-    "nickname": "nickname_do_usuario",  // unique
-    "email": "email@usuario.com",       // unique
-    "age": 30,                          // >=18
-    "password": "123456"                // min 6 characters
+    "chat": true,
+    "username": "admin"
 }
-``` -->
+```
+
+### PUT
+- /settings/**:username**
+```
+BODY:
+{
+    "chat": true
+}
+```
+
+### POST
+- /users
+```
+BODY:
+{
+    "email": "email@email.com.br"
+}
+```
+
+### POST
+- /messages
+```
+BODY:
+{
+    "user_id": "uuid-string-here",
+    "text": "Texto da mensagem",
+    "admin_id": "uuid-string-here"  (nullable)
+}
+```
+
+### GET
+- /messages/**:id**
